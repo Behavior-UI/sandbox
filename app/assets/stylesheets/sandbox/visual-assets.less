@@ -1,0 +1,67 @@
+ul.unstyled {
+  list-style: none;
+}
+li.swatch {
+  border-radius: 10px;
+  height: 220px;
+  width: 220px;
+  margin: 0 20px 20px 0;
+  div {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px;
+    min-height: 40px;
+    background-color: rgba(255,255,255, .6);
+    text-align: center;
+  }
+  h6 {
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 12px;
+    margin-bottom: 0px;
+  }
+}
+li.glyph {
+  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+  border: 2px solid grey;
+  padding: 5px;
+  margin: 0 20px 20px 0;
+  position: relative;
+  &.large {
+    height: 160px;
+    width: 300px;
+    img {
+      max-width: 280px;
+      max-height: 130px;
+    }
+  }
+  &.dark {
+    background-color: @grey-10;
+  }
+  div {
+    text-align: center;
+    .glyph-container {
+      height: 90px;
+      span {
+        font-size: 78px;
+      }
+    }
+    p {
+      font-size: 10px;
+      &.bottom {
+        position: absolute;
+        bottom: 2px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+  h6 {
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}

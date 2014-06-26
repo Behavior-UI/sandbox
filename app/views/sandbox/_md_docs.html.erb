@@ -1,0 +1,17 @@
+<div class="markdown-docs">
+  <h2>Related Documentation</h2>
+  <p class="text-muted">Note: Not all links in these work.</p>
+
+  <ul class="nav nav-tabs nav-append-content" data-behavior="BS.Tabs">
+    <% docs.each do |path| %>
+      <li><a><%= path.split("/").last.gsub('.md', '') %></a></li>
+    <% end %>
+  </ul>
+  <div class="tab-content">
+    <% docs.each do |path| %>
+      <div class="tab-pane">
+        <%= read_markdown_from_sandbox(path).html_safe %>
+      </div>
+    <% end %>
+  </div>
+</div>

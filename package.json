@@ -1,0 +1,24 @@
+{
+  "name": "behavior-ui-sandbox",
+  "version": "0.0.1",
+  "description": "Ruby on Rails documentation runner for Behavior-UI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/behavior-ui/sandbox.git"
+  },
+  "keywords": [
+    "mootools",
+    "behavior",
+    "ui",
+    "bootstrap"
+  ],
+  "author": "Aaron Newton, Davy Wentworth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/behavior-ui/behavior-ui/issues"
+  },
+  "homepage": "http://thanx.com",
+  "dependencies": {
+    "bower": "1.3.5"
+  }
+}

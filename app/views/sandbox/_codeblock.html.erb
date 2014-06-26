@@ -1,0 +1,32 @@
+<%
+  @codeblock_index = defined?(@codeblock_index) ? @codeblock_index + 1 : 0;
+%>
+<div class="example-block">
+
+  <ul class="nav nav-tabs nav-append-content" data-behavior="BS.Tabs" data-bs-tabs-options="{
+        'tabs-selector': 'a.tab',
+        'sections-selector': '~.tab-content > .tab-pane'
+      }">
+    <li><a class="tab">Example</a></li>
+    <li><a class="tab">Code</a></li>
+    <% if defined?(include_response) && include_response %>
+      <li><a class="tab">Response</a></li>
+    <% end %>
+    <li class="pull-right">
+      <%= link_to sandbox_codeblock_sizes_path(section: @section, dir: @dir, file: @file, index: @codeblock_index, force_flatui: @force_flatui) do %>
+        View responsive&nbsp; <i class="glyphicon glyphicon-new-window"></i>
+      <% end %>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane clearfix">
+      <%= yield %>
+    </div>
+    <div class="tab-pane prettyprint-tab"><pre class="prettyprint"><%= yield.strip.gsub('<', '&lt;').html_safe %></pre></div>
+    <% if defined?(include_response) && include_response %>
+      <div class="tab-pane response"></div>
+    <% end %>
+  </div>
+
+</div>

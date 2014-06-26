@@ -1,0 +1,55 @@
+<% @no_side_nav = true %>
+<% lg_size = @force_thanxui ? "1300" : "1200" %>
+
+<a class="btn btn-primary" href="javascript:window.history.back();"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
+<%= link_to sandbox_embed_code_path(section: @section, dir: @dir, file: @file, index: @index, force_flatui: params[:force_flatui]), class: "btn btn-info pull-right" do %>
+  View full-screen <i class="glyphicon glyphicon-fullscreen"></i>
+<% end %>
+
+<h3>Extra small devices <small class="text-muted">Phones (&lt;768px)</small></h3>
+<iframe src=<%= sandbox_embed_code_path(
+  section:      @section,
+  dir:          @dir,
+  file:         @file,
+  index:        @index,
+  force_flatui: params[:force_flatui],
+  iframe:       true
+  ) %> width="320" height="480" frameBorder="0"
+></iframe>
+
+<h3>Small devices <small class="text-muted">Tablets (&ge;768px)</small></h3>
+
+<iframe src=<%= sandbox_embed_code_path(
+  section:      @section,
+  dir:          @dir,
+  file:         @file,
+  index:        @index,
+  force_flatui: params[:force_flatui],
+  iframe:       true
+  ) %> width="768" height="480" frameBorder="0">
+</iframe>
+
+<h3>Medium devices <small class="text-muted">Desktops (&ge;992px)</small></h3>
+
+
+<iframe src=<%= sandbox_embed_code_path(
+  section:      @section,
+  dir:          @dir,
+  file:         @file,
+  index:        @index,
+  force_flatui: params[:force_flatui],
+  iframe:       true
+  ) %> width="992" height="480" frameBorder="0">
+</iframe>
+
+<h3>Large devices <small class="text-muted">Desktops (&ge;<%= lg_size %>px)</small></h3>
+
+<iframe src=<%= sandbox_embed_code_path(
+  section:      @section,
+  dir:          @dir,
+  file:         @file,
+  index:        @index,
+  force_flatui: params[:force_flatui],
+  iframe:       true
+  ) %> width="<%= lg_size %>" height="480" frameBorder="0">
+</iframe>

@@ -1,0 +1,40 @@
+<ul class="nav navbar-nav" data-behavior="BS.Dropdown">
+  <li class="<%= 'active' if @file == 'overview' %>">
+    <%= link_to 'Overview', sandbox_about_path('overview') %>
+  </li>
+  <li class="<%= 'active' if @file == 'getting_started' %>">
+    <%= link_to 'Getting Started', sandbox_about_path('getting_started') %>
+  </li>
+
+
+  <li class="<%= 'active' if @section == 'JavaScript' %>">
+    <%= link_to 'JavaScript', sandbox_dir_file_path('JavaScript', 'Accordions, Carousels, and Tabs', 'Behavior.BS.Carousel') %>
+  </li>
+ </ul>
+<ul class="nav navbar-nav navbar-right">
+  <% if @force_thanxui %>
+    <li class="<%= 'active' if !@bootstrap_styles || @force_flatui  %>">
+      <a>
+        <i class="fui-check"></i>
+        Thanx-UI <span class="hidden-xs hidden-sm">styles</span>
+      </a>
+    </li>
+  <% else %>
+    <li class="<%= 'active' if @bootstrap_styles && !@force_flatui %>">
+      <a href="<%= url_for(bootstrap_styles: 'true') %>">
+        <i class="<%= @bootstrap_styles && !@force_flatui ? "glyphicon glyphicon-ok" : @force_flatui ? "fui-alert" : "fui-check" %>"></i>
+        Bootstrap <span class="hidden-xs hidden-sm">styles</span>
+      </a>
+    </li>
+    <li class="<%= 'active' if !@bootstrap_styles || @force_flatui  %>">
+      <a href="<%= url_for(bootstrap_styles: 'false') %>">
+        <i class="<%= @bootstrap_styles && !@force_flatui ? "glyphicon glyphicon-ok" : "fui-check" %>"></i>
+        Flat-UI <span class="hidden-xs hidden-sm">styles</span>
+      </a>
+    </li>
+  <% end %>
+  <li>
+    <a href="#">About</a>
+  </li>
+  <li></li>
+</ul>

@@ -1,0 +1,10 @@
+<% @force_flatui = true %>
+<div class="bs-callout bs-callout-danger">
+  <h4>Warning: Built for Flat-UI</h4>
+  <p>This component has no direct correlary to vanilla Bootstrap. The styling here depends on Flat-UI.
+    <% if @bootstrap_styles %>
+      <strong>Forcing display of this example to use Flat-UI.</strong>
+    <% end %>
+  </p>
+  <%= content if defined?(content) %>
+</div>

@@ -1,0 +1,32 @@
+<div class="alert alert-<%= local_assigns[:type] == "error" ? "error alert-danger" : "info" %> fade in "
+  <% if local_assigns[:link_all] %>
+    data-trigger="nix"
+    <% if !local_assigns[:delay].nil? %>
+      data-behavior="Startup" data-startup-options="
+        'delegators': {
+          'nix': {
+            'delay': <%= local_assigns[:delay] %>
+          }
+        }
+      "
+    <% end %>
+  <% end %>
+  >
+  <a class="close"
+  <% if !local_assigns[:link_all] %>
+    data-trigger="nix" data-nix-options="
+      'target': '!div.alert'
+    "
+    <% if !local_assigns[:delay].nil? %>
+      data-behavior="Startup" data-startup-options="
+        'delegators': {
+          'nix': {
+            'delay': <%= local_assigns[:delay] %>
+          }
+        }
+      "
+    <% end %>
+  <% end %>
+  >×</a>
+  <%= local_assigns[:message].html_safe %>
+</div>

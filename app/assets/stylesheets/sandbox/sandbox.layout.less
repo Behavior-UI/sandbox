@@ -1,0 +1,162 @@
+/* let's not have gigantic fonts for sandbox... */
+@font-size-base: 14px;
+h1, .h1 { font-size: floor(@font-size-base * 3.5); }
+h2, .h2 { font-size:  ceil(@font-size-base * 2.72);}
+h3, .h3 { font-size:  ceil(@font-size-base * 2.2); }
+h4, .h4 { font-size:  ceil(@font-size-base * 1.8); }
+h5, .h5 { font-size:  @font-size-base * 1.5 }
+h6, .h6 { font-size:  ceil(@font-size-base * 1.2); }
+
+
+body {
+	margin-top: 70px;
+}
+a {
+	cursor: pointer;
+}
+
+// Sidebar for Components navigation
+.sandbox-sidebar-wrapper{
+  .brand {
+    padding: 7px 20px;
+    display: block;
+    border-radius: 4px 4px 0 0;
+    padding-top: 20px;
+    background-color: mix(@brand-primary, white, 50%);
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .filter {
+    background-color: mix(@brand-primary, white, 6%);
+    padding: 8px;
+    margin: 0;
+    .box-shadow(0 3px 2px rgba(0,0,0,.175));
+  }
+
+  .sandbox-sidebar {
+    margin: 0;
+    max-height: 200px;
+    list-style-type: none;
+    overflow-x: hidden;
+    overlfow-y: auto;
+    padding: 0;
+    background-color: mix(@brand-primary, white, 6%);
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+    border-radius: 0 0 6px 6px;
+    border-bottom: 1px solid mix(@brand-primary, white, 15%);
+
+    li {
+      &.header {
+        background-color: mix(@brand-primary, white, 15%);
+        a {
+          color: #666;
+        }
+      }
+      &.active {
+        background-color: mix(@brand-primary, white, 85%);
+        a {
+          color: #fff;
+        }
+      }
+      &:hover {
+        background-color: mix(@brand-primary, white, 30%);
+        a {
+          color: #fff;
+        }
+      }
+    }
+    a {
+      display: block;
+      padding: 7px 20px;
+    }
+  }
+}
+
+@media (min-width: @screen-lg) {
+  .sandbox-sidebar-wrapper{
+    position: fixed;
+    width: 263px;
+    top: 70px;
+    bottom: 30px;
+    .sandbox-sidebar {
+      max-height: 500px;
+    }
+  }
+}
+@media (min-width: @screen-md) and (max-width: @screen-lg) {
+  .sandbox-sidebar-wrapper{
+    position: fixed;
+    width: 213px;
+    top: 70px;
+    bottom: 30px;
+    .sandbox-sidebar {
+      max-height: 500px;
+    }
+  }
+}
+
+.example-block {
+	.tab-content {
+		z-index: inherit;
+	}
+}
+
+.prettyprint-tab pre.prettyprint {
+	background-color: inherit;
+	border: none;
+	.box-shadow(none);
+}
+
+.markdown-docs {
+  border-top: 3px double #999;
+  padding: 18px;
+  margin-top: 20px;
+  h1 {
+    font-size: 33px;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* demo/example styles */
+.box {
+   border: 1px solid #999;
+   border-radius: 8px;
+   padding: 40px;
+   margin: 10px;
+   text-align: center;
+}
+ul.box {
+  text-align: left;
+}
+.red {
+  background-color: #990000;
+  color: #fff;
+}
+
+/* chart examples */
+
+i.json {
+  display: block;
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid #999;
+  padding: 8px;
+  .border-radius(4px);
+}
+
+.example-block {
+  .tab-content {
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
+    margin-bottom: 20px;
+    border-radius: 0px 0px 4px 4px;
+    .tab-pane {
+      padding: 20px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="notices">
+  <% if notice %>
+    <%= render :partial => "/shared/alert", :locals => {:message => notice, :type => 'warning', :delay => 3500} %>
+  <% end %>
+  <% if alert %>
+    <%= render :partial => "/shared/alert", :locals => {:message => alert, :type => 'error'} %>
+  <% end %>
+</div>

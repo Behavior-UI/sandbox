@@ -1,0 +1,177 @@
+<%
+
+  #
+  # Available @variables to configure this layout:
+  #
+  # @html_class         (string) class name to add to the root `<html>` tag; defaults to empty string
+  # @bootstrap_styles   (boolean) determins if flat-ui or bootstrap 3.0 styles are
+  #                      used. Set in the controller base don user preference.
+  # @force_flatui       (boolean) a manual override for specific demos that only work with flat-ui
+  # @force_thanxui      (boolean) a default for all CSS files except for those in the
+  #                     'base' subdir
+  # @no_js              (boolean) prevents sandbox.js from being included
+  # @no_charts          (boolean) prevents highcharts from being included
+  # @load_maps          (boolean) if true, includes google maps; be sure to set GOOGLE_API_KEY in your
+  #                     env. variables
+  # @page_class         (string) class name to add to the `<body>` tag
+  # @no_side_nav        (boolean) if true, displays all the content for the page in the full container
+  #                      otherwise includes a navigation menu on the left
+  # @section,
+  # @files,
+  # @section_files,
+  # @dir,
+  # @index              various settings for telling the page which document to load; see sandbox controller
+  #
+  # Yields
+  #
+  # :styles             CSS styles to include in the document head
+  # :javascript         JavaScript to include in the document head
+  #
+
+%><!DOCTYPE html>
+<html class="<%= @html_class %>">
+<head>
+  <title><%= @page_title ? "#{@page_title} - " : ""  %>Behavior-UI - Sandbox</title>
+
+  <% unless @no_style %>
+    <%= stylesheet_link_tag "sandbox/sandbox-flatui" if !@bootstrap_styles || @force_flatui %>
+    <%= stylesheet_link_tag "sandbox/sandbox-bootstrap" if @bootstrap_styles && !@force_flatui %>
+    <%= stylesheet_link_tag "thanx/thanx" if @force_thanxui %>
+  <% end %>
+
+  <%= yield :styles %>
+
+  <% unless @no_js %>
+    <%= javascript_include_tag asset_path("assets/behavior_ui/dist/js/behavior-ui.js") %>
+    <!-- These are just here to make the code examples pretty. -->
+    <%= javascript_include_tag asset_path("jquery/dist/jquery.min.js") %>
+    <%= javascript_include_tag "prettify.js" %>
+  <% end %>
+
+
+  <% unless @no_charts || @no_js %>
+    <%= javascript_include_tag "highstock/adapters/mootools-adapter.src.js" %>
+    <%= javascript_include_tag "highstock/highstock.src.js" %>
+    <%= javascript_include_tag "highstock/modules/exporting.js" %>
+    <script>
+      Highcharts.setOptions({
+        global: {
+          useUTC: false
+        }
+      });
+    </script>
+
+  <% end %>
+  <% if @load_maps %>
+    <%= javascript_include_tag "//maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&sensor=false" %>
+  <% end %>
+
+  <%= yield :javascript %>
+
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <%=
+      javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
+    %>
+  <![endif]-->
+
+  <%= csrf_meta_tag %>
+</head>
+<body class="<%= @page_class %>">
+  <% if @no_nav %>
+    <%= render "/shared/notices" %>
+    <%= yield %>
+  <% else %>
+  <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to 'Behavior UI', sandbox_path, class: 'navbar-brand' %>
+      </div>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <%= render partial: 'nav' %>
+      </nav>
+    </div>
+  </header>
+
+    <div class="container">
+      <div class="row">
+        <% if @section && !@no_side_nav %>
+            <div class="col-md-3">
+              <div class="sandbox-sidebar-wrapper">
+                <div class="brand">Sandbox: <%= @section %></div>
+                <div class="filter form-group">
+                  <div class="input-group input-group-rounded">
+                    <span class="<%= @bootstrap_styles ? 'input-group-addon' : 'input-group-btn' %>">
+                      <% if @bootstrap_styles %>
+                        <span class="glyphicon glyphicon-search"></span>
+                      <% else %>
+                        <button type="submit" class="btn"><span class="fui-search"></span></button>
+                      <% end %>
+                    </span>
+                    <input type="search" class="form-control"
+                      placeholder="Filter" data-behavior="Filter" data-filter-options="
+                        'items':'!.sandbox-sidebar-wrapper .sandbox-sidebar li',
+                        'rateLimit': 0
+                      ">
+                  </div>
+
+                </div>
+                <ul class="sandbox-sidebar" data-behavior="InteractiveList" data-interactivelist-options="
+                  'selectedClass':'active'
+                ">
+                  <% @section_files.each do |page, file| %>
+                    <% if file.kind_of?(Hash) %>
+                      <li class="header">
+                        <a><%= page.upcase.underscores_to_spaces %></a>
+                      </li>
+                      <% path = request.fullpath.split("?")[0] %>
+                      <% file.each do |sub_page, sub_file| %>
+                        <li class="<%= "active" if path == URI::escape("/sandbox/#{@section}/#{page}/#{sub_file}") || path == URI::escape("/sandbox/#{page}") %>">
+                          <%= link_to sub_page.underscores_to_spaces, sandbox_dir_file_path(dir: page, file: sub_file) %>
+                        </li>
+                      <% end %>
+                    <% else %>
+                      <%= nav_link page.underscores_to_spaces, sandbox_file_path(file) %>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <%= render "/shared/notices" %>
+              <%= yield %>
+            </div>
+
+        <% else %>
+          <div class="col-md-12">
+            <%= render "/shared/notices" %>
+            <%= yield %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_tag url_for({}), id: "auth_form_id", class: "hide" do %><% end %>
+
+  <% unless @no_js %>
+    <script>
+      var behavior = new Behavior({
+        <% if params[:debug] == "true" %>
+        verbose: true,
+        breakOnErrors: true
+        <% end %>
+      });
+      var delegator = new Delegator({
+        getBehavior: function(){ return behavior; }
+      }).attach(document.body);
+      behavior.setDelegator(delegator).apply(document.body);
+      $$('.markdown-docs pre').addClass('prettyprint');
+      $(function () {
+        prettyPrint();
+      });
+    </script>
+  <% end %>
+</body>
+</html>
