@@ -8,6 +8,7 @@ class SandboxController < ApplicationController
   #
   # main welcome screen
   def index
+    render_markdown("#{SANDBOX_DOCS_ABOUT}overview.md");
   end
 
 
