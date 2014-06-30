@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
-# MySQL2 Database Adapter Gem for accessing app.thanx.com production db
+# MySQL2 Database Adapter Gem
 gem 'mysql2', '0.3.14'
 
 # CSS Compressor
@@ -17,20 +17,9 @@ gem 'therubyracer', '0.12.0', platform: :ruby
 gem "less-rails"
 
 gem 'unf'
-# Amazon AWS - RDS, S3, SES, etc.
-gem 'aws-sdk', '1.29.0'
-
-# PaperClip Gem - https://github.com/thoughtbot/paperclip to access paperclipped assets on thanx-web
-gem 'paperclip', '3.5.2'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
-# Airbrake Error Dashboard - https://devcenter.heroku.com/articles/airbrake
-gem 'airbrake', '3.1.14'
 
 # Redcarpet - fast, safe and extensible Markdown to (X)HTML parser
 gem 'redcarpet', '3.0.0'
@@ -41,8 +30,6 @@ gem "bower-rails", "~> 0.7.3"
 group :production do
   # Heroku web server
   gem 'unicorn', '4.7.0'
-  # Asset Sync - Synchronizes assets between Rails and S3
-  gem 'asset_sync', '1.0.0'
   # Add better Heroku support
   gem 'rails_12factor'
 end

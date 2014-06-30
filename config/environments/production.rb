@@ -45,28 +45,6 @@ Sandbox::Application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
-  # Set Controller Asset Host
-  config.action_controller.asset_host = "https://#{ENV['CLOUDFRONT_PATH']}.cloudfront.net"
-  # Set Mailer Asset Host
-  config.action_mailer.asset_host = "http://#{ENV['CLOUDFRONT_PATH']}.cloudfront.net"
-
-  PAPERCLIP_STORAGE_OPTIONS = {
-    :storage => :s3,
-    :bucket => ENV['S3_BUCKET_NAME'],
-    :s3_credentials => {
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    },
-    :s3_headers => {
-      'Expires' => 1.year.from_now.httpdate
-    },
-    :path => ":attachment/:id/:style/:style-:fingerprint.:extension",
-    :url => ":attachment/:id/:style/:style-:fingerprint.:extension"
-  }
-
-  # use amazon ses to deliver mail
-  config.action_mailer.delivery_method = :amazon_ses
-
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 

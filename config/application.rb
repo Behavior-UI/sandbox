@@ -43,15 +43,25 @@ module Sandbox
     if !Rails.env.development? && !Rails.env.test?
       # Disable Rails's static asset server
       # In production, Apache or nginx will already do this
-      config.serve_static_assets = false
-      config.assets.compile = false
-      config.assets.compress = false
+      config.serve_static_assets = true
+      config.assets.compile = true
+      config.assets.compress = true
       config.assets.digest = true
+      config.assets.enabled = true
       config.fail_silently = true
-      config.assets.version = '1.0.0'
+      config.assets.version = '1.0.2'
+      config.assets.js_compressor  = :uglifier
+      config.assets.css_compressor = :yui
 
       # Asset pipeline precompilation whitelist
-      config.assets.precompile += [ '*.css', '*.js' ]
+      config.assets.precompile += [
+        'sandbox/bootstrap.css',
+        'sandbox/sandbox-bootstrap.css',
+        'sandbox/sandbox-flatui.css',
+        'behavior_ui/dist/js/*.js',
+        'app/assets/javascripts/*.js'
+      ]
+
     end
 
   end
