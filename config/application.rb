@@ -51,7 +51,7 @@ module Sandbox
       config.assets.compress = true
       config.assets.digest = true
       config.assets.enabled = true
-      config.fail_silently = true
+      config.fail_silently = false
       config.assets.version = '1.0.2'
       config.assets.js_compressor  = :uglifier
       config.assets.css_compressor = :yui
@@ -61,8 +61,10 @@ module Sandbox
         'sandbox/bootstrap.css',
         'sandbox/sandbox-bootstrap.css',
         'sandbox/sandbox-flatui.css',
-        'behavior_ui/dist/js/*.js',
-        'app/assets/javascripts/*.js'
+        'behavior_ui/dist/js/behavior-ui.js',
+        'prettify.js',
+        'highstock/*.js',
+        'jquery/dist/jquery.min.js'
       ]
 
     end
