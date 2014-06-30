@@ -42,9 +42,9 @@
   <%= yield :styles %>
 
   <% unless @no_js %>
-    <%= javascript_include_tag asset_path("assets/behavior_ui/dist/js/behavior-ui.js") %>
+    <%= javascript_include_tag "behavior_ui/dist/js/behavior-ui.js" %>
     <!-- These are just here to make the code examples pretty. -->
-    <%= javascript_include_tag asset_path("jquery/dist/jquery.min.js") %>
+    <%= javascript_include_tag "jquery/dist/jquery.min.js" %>
     <%= javascript_include_tag "prettify.js" %>
   <% end %>
 

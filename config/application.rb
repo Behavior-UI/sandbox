@@ -28,14 +28,8 @@ module Sandbox
     config.assets.initialize_on_precompile = false
 
     config.less.paths << Rails.root.join("vendor", "assets", "bower_components")
-    config.less.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "less")
 
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "sandbox", "doc_assets")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "bootstrap")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "flat-ui-official")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "flat-ui-official", "fonts")
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     config.assets.precompile += %w( .svg .eot .woff .ttf )
 

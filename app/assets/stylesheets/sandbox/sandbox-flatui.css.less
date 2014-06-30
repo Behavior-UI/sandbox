@@ -48,8 +48,7 @@
 @import "bootstrap/less/utilities.less";
 @import "bootstrap/less/responsive-utilities.less";
 
-@import "flat-ui-official/less/modules/local-fonts";
-@import "flat-ui-official/less/modules/glyphicons";
+
 
 // Loading config with variables (changing them leads to changing a color scheme)
 @import "flat-ui-official/less/variables";
@@ -60,6 +59,10 @@
 @import "flat-ui-official/less/modules/scaffolding";
 
 // Modules
+@icon-font-path: "/assets/";
+@local-font-path: "/assets/lato/";
+@import "flat-ui-official/less/modules/local-fonts";
+@import "flat-ui-official/less/modules/glyphicons";
 @import "flat-ui-official/less/modules/type";
 @import "flat-ui-official/less/modules/code";
 @import "flat-ui-official/less/modules/thumbnails";
@@ -96,21 +99,21 @@
 @import "flat-ui-official/less/spaces";
 
 // Components
-@import "thanx/overrides/autocomplete.less";
-@import "thanx/overrides/charts.less";
-@import "thanx/overrides/color-picker.less";
-@import "thanx/overrides/date-picker.less";
-@import "thanx/overrides/form-validator.less";
-@import "thanx/overrides/htmltable.less";
-@import "thanx/overrides/modals.less";
-@import "thanx/overrides/select.less";
-@import "thanx/overrides/spinner.less";
-@import "thanx/components/thanx-glyphs.less";
-@import "thanx/components/thanx-palette.less";
-@import "thanx/overrides/underscrolls.less";
-@import "thanx/fonts-less/all-fonts.less";
-@import "thanx/overrides/variables.less";
-@import "thanx/mixins/utilities.less";
+@import "behavior_ui/less/thanx/overrides/autocomplete.less";
+@import "behavior_ui/less/thanx/overrides/charts.less";
+@import "behavior_ui/less/thanx/overrides/color-picker.less";
+@import "behavior_ui/less/thanx/overrides/date-picker.less";
+@import "behavior_ui/less/thanx/overrides/form-validator.less";
+@import "behavior_ui/less/thanx/overrides/htmltable.less";
+@import "behavior_ui/less/thanx/overrides/modals.less";
+@import "behavior_ui/less/thanx/overrides/select.less";
+@import "behavior_ui/less/thanx/overrides/spinner.less";
+@import "behavior_ui/less/thanx/components/thanx-glyphs.less";
+@import "behavior_ui/less/thanx/components/thanx-palette.less";
+@import "behavior_ui/less/thanx/overrides/underscrolls.less";
+@import "behavior_ui/less/thanx/fonts-less/all-fonts.less";
+@import "behavior_ui/less/thanx/overrides/variables.less";
+@import "behavior_ui/less/thanx/mixins/utilities.less";
 
 @import "sandbox/sandbox.layout.less";
 @import "sandbox/bootstrap.docs.less";

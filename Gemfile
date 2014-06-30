@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
-# MySQL2 Database Adapter Gem
-gem 'mysql2', '0.3.14'
-
 # CSS Compressor
 gem 'yui-compressor', '0.12.0'
 
