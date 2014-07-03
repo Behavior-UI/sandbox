@@ -59,8 +59,8 @@
 @import "flat-ui-official/less/modules/scaffolding";
 
 // Modules
-@icon-font-path: "/assets/";
-@local-font-path: "/assets/lato/";
+@icon-font-path: "/assets/flat-ui-official/fonts/";
+@local-font-path: "/assets/flat-ui-official/fonts/lato/";
 @import "flat-ui-official/less/modules/local-fonts";
 @import "flat-ui-official/less/modules/glyphicons";
 @import "flat-ui-official/less/modules/type";
@@ -99,6 +99,12 @@
 @import "flat-ui-official/less/spaces";
 
 // Components
+
+@import "behavior_ui/less/thanx/overrides/variables.less";
+
+@behavior-ui-image-path: '/assets/';
+@behavior-ui-font-path: '/assets/behavior_ui/fonts/';
+
 @import "behavior_ui/less/thanx/overrides/autocomplete.less";
 @import "behavior_ui/less/thanx/overrides/charts.less";
 @import "behavior_ui/less/thanx/overrides/color-picker.less";
@@ -111,8 +117,6 @@
 @import "behavior_ui/less/thanx/components/thanx-glyphs.less";
 @import "behavior_ui/less/thanx/components/thanx-palette.less";
 @import "behavior_ui/less/thanx/overrides/underscrolls.less";
-@import "behavior_ui/less/thanx/fonts-less/all-fonts.less";
-@import "behavior_ui/less/thanx/overrides/variables.less";
 @import "behavior_ui/less/thanx/overrides/utilities.less";
 
 @import "sandbox/sandbox.layout.less";
