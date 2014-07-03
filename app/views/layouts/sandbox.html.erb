@@ -159,23 +159,5 @@
 
   <%= form_tag url_for({}), id: "auth_form_id", class: "hide" do %><% end %>
 
-  <% unless @no_js %>
-    <script>
-      var behavior = new Behavior({
-        <% if params[:debug] == "true" %>
-        verbose: true,
-        breakOnErrors: true
-        <% end %>
-      });
-      var delegator = new Delegator({
-        getBehavior: function(){ return behavior; }
-      }).attach(document.body);
-      behavior.setDelegator(delegator).apply(document.body);
-      $$('.markdown-docs pre').addClass('prettyprint');
-      $(function () {
-        prettyPrint();
-      });
-    </script>
-  <% end %>
 </body>
 </html>
