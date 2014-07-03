@@ -120,13 +120,17 @@
                 <ul class="sandbox-sidebar" data-behavior="InteractiveList" data-interactivelist-options="
                   'selectedClass':'active'
                 ">
-                  <% @section_files.each do |page, file| %>
+                  <% @section_files.keys.sort.each do |page|
+                      file = @section_files[page]
+                    %>
                     <% if file.kind_of?(Hash) %>
                       <li class="header">
                         <a><%= page.upcase.underscores_to_spaces %></a>
                       </li>
                       <% path = request.fullpath.split("?")[0] %>
-                      <% file.each do |sub_page, sub_file| %>
+                      <% file.values.sort.each do |sub_page|
+                          sub_file = file[sub_page]
+                        %>
                         <li class="<%= "active" if path == URI::escape("/sandbox/#{@section}/#{page}/#{sub_file}") || path == URI::escape("/sandbox/#{page}") %>">
                           <%= link_to sub_page.underscores_to_spaces, sandbox_dir_file_path(dir: page, file: sub_file) %>
                         </li>
