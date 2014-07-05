@@ -50,9 +50,7 @@
 
 
   <% unless @no_charts || @no_js %>
-    <%= javascript_include_tag "highstock/adapters/mootools-adapter.src.js" %>
-    <%= javascript_include_tag "highstock/highstock.src.js" %>
-    <%= javascript_include_tag "highstock/modules/exporting.js" %>
+    <%= javascript_include_tag "high-stock/highstock.src.js" %>
     <script>
       Highcharts.setOptions({
         global: {
