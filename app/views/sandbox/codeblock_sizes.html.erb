@@ -1,6 +1,12 @@
 <% @no_side_nav = true %>
 <% lg_size = @force_thanxui ? "1300" : "1200" %>
 
+<% content_for :styles do %>
+  <style>
+   iframe { border: 1px solid black; }
+  </style>
+<% end %>
+
 <a class="btn btn-primary" href="javascript:window.history.back();"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
 <%= link_to sandbox_embed_code_path(section: @section, dir: @dir, file: @file, index: @index, force_flatui: params[:force_flatui]), class: "btn btn-info pull-right" do %>
   View full-screen <i class="glyphicon glyphicon-fullscreen"></i>

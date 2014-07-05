@@ -21,6 +21,9 @@ gem 'jbuilder', '~> 1.2'
 # Redcarpet - fast, safe and extensible Markdown to (X)HTML parser
 gem 'redcarpet', '3.0.0'
 
+# HTML, XML, SAX, and Reader parser
+gem 'nokogiri', '1.6.1'
+
 gem "bower-rails", "~> 0.7.3"
 
 # heroku specific gems

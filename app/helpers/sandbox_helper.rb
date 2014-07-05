@@ -48,7 +48,8 @@ module SandboxHelper
     if File.exists?("#{SANDBOX_DOCS_ROOT}#{path}.md")
       body = read_markdown("#{SANDBOX_DOCS_ROOT}#{path}.md")
     elsif File.exists?("#{SANDBOX_DOCS_ROOT}#{path}.html.erb")
-      body = render_to_string(:template => "#{path}.html.erb")
+      # go up from app/views
+      body = render_to_string(:template => "../../#{SANDBOX_DOCS_ROOT}#{path}.html.erb")
     else
       return "File not found: #{path}" unless File.exists?(Rails.root.join(path))
     end
