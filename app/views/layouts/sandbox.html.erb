@@ -33,6 +33,8 @@
 <head>
   <title><%= @page_title ? "#{@page_title} - " : ""  %>Behavior-UI - Sandbox</title>
 
+  <link id="page_favicon" href="<%= asset_path 'assets/behavior_ui/images/favicon.ico' %>" rel="icon" type="image/x-icon" />
+
   <% unless @no_style %>
     <%= stylesheet_link_tag "sandbox/sandbox-flatui" if !@bootstrap_styles || @force_flatui %>
     <%= stylesheet_link_tag "sandbox/sandbox-bootstrap" if @bootstrap_styles && !@force_flatui %>
@@ -66,7 +68,6 @@
 
   <%= yield :javascript %>
 
-
   <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <%=
@@ -84,7 +85,10 @@
   <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
     <div class="container-fluid">
       <div class="navbar-header">
-        <%= link_to 'Behavior UI', sandbox_path, class: 'navbar-brand' %>
+        <%= link_to sandbox_path, class: 'navbar-brand' do %>
+          <%= image_tag asset_path("behavior_ui/images/behavior-iu-logo-small.png") %>
+          Behavior UI
+        <% end %>
       </div>
       <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
         <%= render partial: 'nav' %>
@@ -156,6 +160,12 @@
   <% end %>
 
   <%= form_tag url_for({}), id: "auth_form_id", class: "hide" do %><% end %>
-
+  <script>
+    // this is just here to pretty up the code examples
+    $$('.markdown-docs pre').addClass('prettyprint');
+    $(function () {
+      prettyPrint();
+    });
+  </script>
 </body>
 </html>
