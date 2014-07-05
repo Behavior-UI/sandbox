@@ -47,13 +47,12 @@ module Sandbox
     config.assets.enabled = true
 
     # For all Heroku deployed environments:
-    # TODO remove this "true || " in the next line
-    if true || !Rails.env.development? && !Rails.env.test?
+    if !Rails.env.development? && !Rails.env.test?
       # Disable Rails's static asset server
       # In production, Apache or nginx will already do this
       config.serve_static_assets = true
       config.assets.compile = true
-      config.assets.compress = false # TODO - re-enable
+      config.assets.compress = true
       config.assets.digest = true
       config.assets.enabled = true
       config.fail_silently = false
