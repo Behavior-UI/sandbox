@@ -45,6 +45,13 @@
 
   <% unless @no_js %>
     <%= javascript_include_tag "behavior_ui/dist/js/behavior-ui.js" %>
+    <% if @bootstrap_styles && !@force_flatui %>
+      <script>
+        // prevents FlatUI from greedily converting all select inputs into it's
+        // preferred dom structure when Bootstrap is used.
+        delete Behavior._registered['FlatUI.Select'];
+      </script>
+    <% end %>
     <!-- These are just here to make the code examples pretty. -->
     <%= javascript_include_tag "jquery/dist/jquery.min.js" %>
     <%= javascript_include_tag "prettify.js" %>
