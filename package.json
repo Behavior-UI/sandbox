@@ -1,6 +1,6 @@
 {
   "name": "behavior-ui-sandbox",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Ruby on Rails documentation runner for Behavior-UI",
   "repository": {
     "type": "git",
