@@ -65,8 +65,11 @@ module Sandbox
         'sandbox/sandbox-bootstrap.css',
         'sandbox/sandbox-flatui.css',
         'behavior_ui/dist/js/behavior-ui.js',
+        'behavior_ui/images/*',
+        'behavior_ui/fonts/*',
+        'flat-ui-official/images/**/*',
         'prettify.js',
-        'highstock/*.js',
+        'high-stock/highstock.src.js',
         'jquery/dist/jquery.min.js'
       ]
 
