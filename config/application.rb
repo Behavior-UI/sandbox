@@ -70,7 +70,11 @@ module Sandbox
         'flat-ui-official/images/**/*',
         'prettify.js',
         'high-stock/highstock.src.js',
-        'jquery/dist/jquery.min.js'
+        'jquery/dist/jquery.min.js',
+        '*.png',
+        '*.tff',
+        '*.woff',
+        '*.svg'
       ]
 
     end
@@ -112,7 +116,7 @@ module Sandbox
             rescue
               vlog "could not resolve #{relative_path.split('/').last} - #{relative_path}"
               # fall back on the url
-              "url(#{relative_path})"
+              "url(/#{relative_path})"
             end
           end
         end
