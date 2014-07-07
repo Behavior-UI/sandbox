@@ -70,7 +70,11 @@ module Sandbox
         'flat-ui-official/images/**/*',
         'prettify.js',
         'high-stock/highstock.src.js',
-        'jquery/dist/jquery.min.js'
+        'jquery/dist/jquery.min.js',
+        '*.png',
+        '*.tff',
+        '*.woff',
+        '*.svg'
       ]
 
     end
