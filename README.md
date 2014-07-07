@@ -21,8 +21,3 @@ Behavior-UI Sandbox
 	powder up                     # starts powder
 
 Then just open [http://sandbox.dev](http://sandbox.dev).
-
-## Database configuration
-
-You will find a file called `database.example.yml` in the `/config` directory.
-You need to copy this to `database.yml` and change accordingly.
