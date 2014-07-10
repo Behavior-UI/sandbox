@@ -126,8 +126,30 @@
                   </div>
 
                 </div>
-                <ul class="sandbox-sidebar" data-behavior="InteractiveList" data-interactivelist-options="
+                <ul class="sandbox-sidebar" data-behavior="InteractiveList Trigger" data-trigger="scrollToElement" data-interactivelist-options="
                   'selectedClass':'active'
+                " data-trigger-options="
+                  'triggers': [
+                    {
+                      'events': ['click'],
+                      'targets': {
+                        'a': {
+                          'self::ajax': {
+                            'useSpinner': true,
+                            'action': 'update',
+                            'target': '!body .bs-docs-section',
+                            'filter': '.bs-docs-section'
+                          }
+                        }
+                      }
+                    }
+                  ]
+                " data-scrolltoelement-options="
+                  'offset': {
+                    'x': 0,
+                    'y': 0
+                  },
+                  'toElement': '!body'
                 ">
                   <% @section_files.keys.sort.each do |page|
                       file = @section_files[page]
