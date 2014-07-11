@@ -112,7 +112,7 @@ module Sandbox
               file_parts = file.match(file_name_regex)
               # get the asset path
               path = Rails.application.assets[file_parts[1]].digest_path + file_parts[2] + file_parts[3]
-              "url(/#{path})"
+              "url(/assets/#{path})"
             rescue
               vlog "could not resolve #{relative_path.split('/').last} - #{relative_path}"
               # fall back on the url
