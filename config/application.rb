@@ -56,7 +56,7 @@ module Sandbox
       config.assets.digest = true
       config.assets.enabled = true
       config.fail_silently = false
-      config.assets.version = '1.0.2'
+      config.assets.version = '1.0.3'
       config.assets.js_compressor  = :uglifier
 
       # Asset pipeline precompilation whitelist
@@ -64,7 +64,7 @@ module Sandbox
         'sandbox/bootstrap.css',
         'sandbox/sandbox-bootstrap.css',
         'sandbox/sandbox-flatui.css',
-        'behavior_ui/dist/js/behavior-ui.js',
+        'behavior_ui/dist/prod/js/behavior-ui.js',
         'behavior_ui/images/*',
         'behavior_ui/fonts/*',
         'flat-ui-official/images/**/*',
