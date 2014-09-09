@@ -32,11 +32,13 @@ module Sandbox
     config.less.paths << Rails.root.join("vendor", "assets", "bower_components")
 
     # where are the assets to be precompiled?
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "bootstrap", "fonts")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "flat-ui-official", "fonts")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "flat-ui-official", "fonts", "lato")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "fonts")
-    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "images")
+    #
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "assets", "fonts")
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "assets", "images")
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "dist", "prod", "bootstrap", "fonts")
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "dist", "prod", "bootstrap", "images")
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "dist", "prod", "flat-ui", "fonts")
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "dist", "prod", "flat-ui", "images")
 
     Dir[Rails.root.join("vendor/assets/bower_components/flat-ui-official/images/**")].each { |f| config.assets.paths << f }
 

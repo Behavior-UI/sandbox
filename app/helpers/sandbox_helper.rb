@@ -25,7 +25,11 @@ module SandboxHelper
   #
   # @return [String] The HTML rendered.
   def read_markdown(path)
-    return "File not found: #{Rails.root.join(path)}" unless File.exists?(Rails.root.join(path))
+    if Rails.env.production?
+      return "Document not found." unless File.exists?(Rails.root.join(path))
+    else
+      return "File not found: #{Rails.root.join(path)}" unless File.exists?(Rails.root.join(path))
+    end
     renderer = Redcarpet::Render::HTML.new
     redcarpet = Redcarpet::Markdown.new(renderer)
     parsed = ERB.new(File.read(Rails.root.join(path))).result(binding)
