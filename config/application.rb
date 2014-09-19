@@ -40,7 +40,7 @@ module Sandbox
     config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "dist", "prod", "flat-ui", "fonts")
     config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "behavior_ui", "dist", "prod", "flat-ui", "images")
 
-    Dir[Rails.root.join("vendor/assets/bower_components/flat-ui-official/images/**")].each { |f| config.assets.paths << f }
+    Dir[Rails.root.join("vendor/assets/bower_components/flat-ui/images/**")].each { |f| config.assets.paths << f }
 
     config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.assets.precompile += %w( .png .jpg .jpeg .gif )
@@ -69,7 +69,7 @@ module Sandbox
         'behavior_ui/dist/prod/js/behavior-ui.js',
         'behavior_ui/images/*',
         'behavior_ui/fonts/*',
-        'flat-ui-official/images/**/*',
+        'flat-ui/images/**/*',
         'prettify.js',
         'high-stock/highstock.src.js',
         'jquery/dist/jquery.min.js',
