@@ -159,8 +159,9 @@
                       'targets': {
                         'a': {
                           'self::ajax': {
+                            'updateHistory': true,
                             'useSpinner': true,
-                            'action': 'update',
+                            'action': 'replace',
                             'target': '!body .docs-body',
                             'filter': '.docs-body'
                           }
@@ -215,9 +216,15 @@
   <%= form_tag url_for({}), id: "auth_form_id", class: "hide" do %><% end %>
   <script>
     // this is just here to pretty up the code examples
-    $$('.markdown-docs pre').addClass('prettyprint');
-    $(function () {
-      prettyPrint();
+    window.addEvent('behaviorInit', function(behavior, delegator){
+      var pretty = function(){
+        $$('.markdown-docs pre').addClass('prettyprint');
+        $(function () {
+          prettyPrint();
+        });
+      };
+      behavior.addEvent('ammendDom', pretty);
+      pretty();
     });
   </script>
 </body>
