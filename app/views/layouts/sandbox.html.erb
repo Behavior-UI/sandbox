@@ -161,8 +161,8 @@
                           'self::ajax': {
                             'useSpinner': true,
                             'action': 'update',
-                            'target': '!body .bs-docs-section',
-                            'filter': '.bs-docs-section'
+                            'target': '!body .docs-body',
+                            'filter': '.docs-body'
                           }
                         }
                       }
@@ -197,7 +197,7 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9 docs-body">
               <%= render "/shared/notices" %>
               <%= yield %>
             </div>
