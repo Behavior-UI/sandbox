@@ -1,5 +1,6 @@
 # Sandbox settings
-SANDBOX_ROOT = "vendor/assets/bower_components/behavior_ui/"
+BOWER_ROOT = "vendor/assets/bower_components/"
+SANDBOX_ROOT = "#{BOWER_ROOT}behavior_ui/"
 SANDBOX_DOCS_ROOT = "#{SANDBOX_ROOT}sandbox/"
 SANDBOX_DOCS_PATH = "docs/"
 SANDBOX_DOCS_ABOUT = "#{SANDBOX_DOCS_ROOT}about/"

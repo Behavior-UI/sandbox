@@ -40,7 +40,7 @@ module SandboxHelper
 
   def read_markdown_from_sandbox(path)
     raise "Files must be in the sandbox project" if path.include?('..')
-    read_markdown(SANDBOX_ROOT + path)
+    read_markdown(BOWER_ROOT + path)
   end
 
   #

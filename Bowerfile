@@ -2,3 +2,5 @@
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
 asset "behavior_ui", "https://github.com/Behavior-UI/behavior-ui.git" # get from a git repo
+asset "mootools-core", "https://github.com/mootools/mootools-core.git" # get from a git repo
+asset "mootools-more", "https://github.com/mootools/mootools-more.git" # get from a git repo
