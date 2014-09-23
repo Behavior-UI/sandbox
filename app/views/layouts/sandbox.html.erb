@@ -46,7 +46,7 @@
   <%= yield :styles %>
 
   <% unless @no_js %>
-    <%= javascript_include_tag "behavior_ui/dist/prod/js/behavior-ui.js" %>
+    <%= javascript_include_tag "behavior_ui/dist/#{Rails.env.production? ? "prod" : "dev"}/js/behavior-ui.js" %>
     <% if @bootstrap_styles && !@force_flatui %>
       <script>
         // prevents FlatUI from greedily converting all select inputs into it's
