@@ -14,6 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+npm-debug.log
 
 # Ignore pow configuration
 /.powenv
