@@ -61,6 +61,7 @@
 
 
   <% unless @no_charts || @no_js %>
+    <%= javascript_include_tag "high-stock/adapters/standalone-framework.src.js" %>
     <%= javascript_include_tag "high-stock/highstock.src.js" %>
     <script>
       Highcharts.setOptions({
