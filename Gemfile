@@ -24,8 +24,6 @@ gem 'redcarpet', '3.0.0'
 # HTML, XML, SAX, and Reader parser
 gem 'nokogiri', '1.6.1'
 
-gem "bower-rails", "~> 0.7.3"
-
 # heroku specific gems
 group :production do
   # Heroku web server

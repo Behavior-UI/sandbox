@@ -1,0 +1,6 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "behavior_ui": "https://github.com/Behavior-UI/behavior-ui.git"
+  }
+}
