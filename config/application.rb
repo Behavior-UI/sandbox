@@ -58,7 +58,7 @@ module Sandbox
       config.assets.digest = true
       config.assets.enabled = true
       config.fail_silently = false
-      config.assets.version = '1.0.3'
+      config.assets.version = '1.0.5'
       config.assets.js_compressor  = :uglifier
 
       # Asset pipeline precompilation whitelist
