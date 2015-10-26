@@ -1,0 +1,32 @@
+<ul class="unstyled">
+  <% 100.times.each do |i| %>
+    <li>
+      <%= 100*@offset + i %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="pagination-target">
+  <%=
+    link_to "Next", sandbox_infinite_scroll_path(offset: @offset+1), data: {
+      trigger: "Ajax Stop",
+      ajax_target: "!body div.pagination-target",
+      ajax_options: {
+        action: "replace",
+        target: "!body div.pagination-target",
+        useSpinner: true
+      },
+      behavior: "InfiniteScroll",
+      infinitescroll_options: {
+        "classNames" => {
+          top: '',
+          bottom: '',
+          affixed: 'emerland-bkg'
+        },
+        'ajaxElement' => 'self',
+        'ajaxElementOffset' => 15,
+      },
+      style: "padding: 20; display: inline-block"
+    }
+  %>
+</div>

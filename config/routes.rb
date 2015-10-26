@@ -9,6 +9,7 @@ Sandbox::Application.routes.draw do
     post 'sandbox/echo_html' => :echo_html
     get  'sandbox/chart/:type' => :get_chart
     get  'sandbox/poll_for_update' => :poll_for_update
+    get  'sandbox/infinite_scroll' => :infinite_scroll
     # see: http://stackoverflow.com/questions/5222760/rails-rest-routing-dots-in-the-resource-item-id
     get  'sandbox/:section/:dir/:file' => :show, as: :sandbox_dir_file, :constraints => { :file => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
     get  'sandbox/:section/:file' => :show, as: :sandbox_file, :constraints => { :file => /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ }
