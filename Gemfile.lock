@@ -33,15 +33,8 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
     coderay (1.1.0)
-    columnize (0.8.9)
     commonjs (0.2.7)
     debug_inspector (0.0.2)
-    debugger (1.6.8)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.5)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.5)
     erubis (2.7.0)
     execjs (2.2.1)
     hike (1.2.3)
@@ -72,14 +65,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pry-debugger (0.2.2)
-      debugger (~> 1.3)
-      pry (~> 0.9.10)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    pry-remote (0.1.8)
-      pry (~> 0.9)
-      slop (~> 3.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -146,10 +133,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   less-rails
   nokogiri (= 1.6.1)
-  pry
-  pry-debugger
   pry-rails
-  pry-remote
   rails (= 4.0.3)
   rails_12factor
   redcarpet (= 3.0.0)
@@ -158,3 +142,6 @@ DEPENDENCIES
   unf
   unicorn (= 4.7.0)
   yui-compressor (= 0.12.0)
+
+BUNDLED WITH
+   1.10.6

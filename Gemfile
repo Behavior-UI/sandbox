@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.6'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
@@ -40,11 +42,5 @@ group :development do
 end
 
 group :development, :test do
-  # An IRB alternative and runtime developer console
-  gem 'pry'
-  gem 'pry-remote'
-  gem 'pry-debugger'
   gem 'pry-rails'
 end
-
-ruby "2.1.1"
